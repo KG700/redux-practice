@@ -30,7 +30,7 @@ class Persons extends Component {
         return (
             <div>
                 <AddPerson personAdded={this.personAddedHandler} />
-                {this.state.persons.map(person => (
+                {this.props.persons.map(person => (
                     <Person 
                         key={person.id}
                         name={person.name} 
@@ -48,4 +48,10 @@ const mapStateToProps = state => {
     };
 }
 
-export default connect(mapStateToProps)(Persons);
+const mapDispatchToProps = dispatch => {
+    return {
+        onAddPersons: () => dispatch({type: 'ADD_PERSON'})
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Persons);
