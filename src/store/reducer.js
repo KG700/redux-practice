@@ -15,7 +15,7 @@ const reducer = (state = initialState, action) => {
             }
         case 'REMOVE_PERSON':
             return {
-                persons: state.persons.filter(person => person.id !== action.person_id)
+                persons: state.persons.filter(person => person.id !== action.personId)
             }
     }
     return state;
